@@ -1,0 +1,1193 @@
+<title>宝宝成长手册</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=ZCOOL+KuaiLe&display=swap">
+<style>
+  :root{
+    --ground:#F2F6F0;
+    --surface:#FFFFFF;
+    --surface-2:#E9F0E9;
+    --ink:#22332E;
+    --ink-2:#5C6E65;
+    --line:#DBE5DC;
+    --accent:#C94A60;
+    --accent-soft:#F7E4E7;
+    --on-accent:#FFFFFF;
+    --butter:#B47E22;
+    --butter-soft:#F7EEDB;
+    --ok:#33775A;
+    --ok-soft:#E0F0E7;
+    --warn:#96690F;
+    --warn-soft:#F6ECD6;
+    --bad:#B03A3A;
+    --bad-soft:#F6E1DE;
+    --night:#283150;
+    --night-2:#39466F;
+    --night-ink:#EAEDF8;
+    --night-ink-2:#AEB6D8;
+    --t-food:#A5711A;
+    --t-sleep:#4C5FA8;
+    --t-potty:#2F7F73;
+    --t-sens:#55823A;
+    --t-daily:#7A53A8;
+    --t-vax:#C94A60;
+    --radius:14px;
+    --shadow:0 1px 2px rgba(34,51,46,.05),0 10px 28px -14px rgba(34,51,46,.14);
+    --font-body:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+    --font-disp:"ZCOOL KuaiLe","Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#141D18;
+      --surface:#1C2721;
+      --surface-2:#233029;
+      --ink:#E7EEE8;
+      --ink-2:#A0B1A7;
+      --line:#2D3B33;
+      --accent:#EF8B9C;
+      --accent-soft:#3B2A2E;
+      --on-accent:#2B1418;
+      --butter:#D8B45E;
+      --butter-soft:#362F1E;
+      --ok:#7EC29C;
+      --ok-soft:#1F3529;
+      --warn:#D8AC5F;
+      --warn-soft:#362E1D;
+      --bad:#E08D82;
+      --bad-soft:#392522;
+      --night:#202947;
+      --night-2:#2E3A61;
+      --night-ink:#EAEDF8;
+      --night-ink-2:#A7AFD2;
+      --t-food:#D8AC5F;
+      --t-sleep:#93A2E0;
+      --t-potty:#6FBCAF;
+      --t-sens:#9BBF7C;
+      --t-daily:#B99BE0;
+      --t-vax:#EF8B9C;
+      --shadow:0 1px 2px rgba(0,0,0,.2),0 10px 28px -14px rgba(0,0,0,.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#141D18;
+    --surface:#1C2721;
+    --surface-2:#233029;
+    --ink:#E7EEE8;
+    --ink-2:#A0B1A7;
+    --line:#2D3B33;
+    --accent:#EF8B9C;
+    --accent-soft:#3B2A2E;
+    --on-accent:#2B1418;
+    --butter:#D8B45E;
+    --butter-soft:#362F1E;
+    --ok:#7EC29C;
+    --ok-soft:#1F3529;
+    --warn:#D8AC5F;
+    --warn-soft:#362E1D;
+    --bad:#E08D82;
+    --bad-soft:#392522;
+    --night:#202947;
+    --night-2:#2E3A61;
+    --night-ink:#EAEDF8;
+    --night-ink-2:#A7AFD2;
+    --t-food:#D8AC5F;
+    --t-sleep:#93A2E0;
+    --t-potty:#6FBCAF;
+    --t-sens:#9BBF7C;
+    --t-daily:#B99BE0;
+    --t-vax:#EF8B9C;
+    --shadow:0 1px 2px rgba(0,0,0,.2),0 10px 28px -14px rgba(0,0,0,.5);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:var(--ground);
+    color:var(--ink);
+    font-family:var(--font-body);
+    font-size:15px;
+    line-height:1.8;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding-inline:20px}
+  img{max-width:100%}
+  button{font-family:inherit}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+  /* ============ 顶部导航 ============ */
+  .topbar{
+    position:sticky;top:env(safe-area-inset-top,0px);z-index:20;
+    background:var(--ground);
+    border-bottom:1px solid var(--line);
+    padding-block:10px;
+  }
+  .topbar-in{max-width:1080px;margin:0 auto;padding-inline:20px;display:flex;align-items:center;gap:18px}
+  .brand{display:flex;align-items:center;gap:10px;flex:none;cursor:pointer;background:none;border:0;padding:0}
+  .brand-seal{
+    width:38px;height:38px;border-radius:12px;background:var(--accent);color:var(--on-accent);
+    font-family:var(--font-disp);font-size:20px;display:grid;place-items:center;
+  }
+  .brand-name{font-family:var(--font-disp);font-size:19px;color:var(--ink);letter-spacing:.02em}
+  .tabs{
+    display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1;
+    -webkit-overflow-scrolling:touch;
+  }
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{
+    flex:none;border:0;background:none;color:var(--ink-2);
+    font-size:14px;font-weight:500;padding:7px 13px;border-radius:999px;cursor:pointer;
+    transition:background .15s,color .15s;
+  }
+  .tab:hover{background:var(--surface-2);color:var(--ink)}
+  .tab.on{background:var(--ink);color:var(--ground);font-weight:700}
+
+  /* ============ 通用区块结构 ============ */
+  main{padding-block:30px 60px}
+  section.page{display:none}
+  section.page.on{display:block;animation:fadein .18s ease}
+  @keyframes fadein{from{opacity:.4;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+  .eyebrow{
+    font-size:12px;letter-spacing:.22em;font-weight:700;
+    margin:0 0 6px;
+  }
+  .sec-head{margin-bottom:22px}
+  .sec-head h2{
+    font-family:var(--font-disp);font-weight:400;
+    font-size:clamp(26px,4.5vw,34px);line-height:1.25;margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .sec-head .lead{color:var(--ink-2);max-width:640px;margin:0;max-width:72ch}
+  #food .eyebrow{color:var(--t-food)} #sleep .eyebrow{color:var(--t-sleep)}
+  #potty .eyebrow{color:var(--t-potty)} #sensory .eyebrow{color:var(--t-sens)}
+  #daily .eyebrow{color:var(--t-daily)} #vax .eyebrow{color:var(--t-vax)}
+
+  h3{
+    font-family:var(--font-disp);font-weight:400;font-size:20px;
+    margin:0 0 12px;letter-spacing:.02em;
+  }
+  .block{margin-top:30px}
+  .card{
+    background:var(--surface);border:1px solid var(--line);
+    border-radius:var(--radius);padding:22px;
+  }
+  .grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+  .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+  .muted{color:var(--ink-2)}
+  .small{font-size:13px}
+
+  /* ============ 首页 ============ */
+  .hero{display:grid;grid-template-columns:1.25fr 1fr;gap:26px;align-items:start}
+  @media (max-width:820px){.hero{grid-template-columns:1fr}}
+  .hero h1{
+    font-family:var(--font-disp);font-weight:400;
+    font-size:clamp(32px,6vw,46px);line-height:1.28;margin:6px 0 14px;text-wrap:balance;
+  }
+  .hero .sub{color:var(--ink-2);margin:0 0 22px;max-width:46ch}
+  .hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px;padding:0;list-style:none}
+  .hero-tags li{
+    font-size:13px;background:var(--surface);border:1px solid var(--line);
+    color:var(--ink-2);border-radius:999px;padding:4px 12px;
+  }
+
+  .profile{
+    background:var(--surface);border:1px solid var(--line);border-radius:18px;
+    padding:20px;box-shadow:var(--shadow);
+  }
+  .profile-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+  .profile-title{font-family:var(--font-disp);font-size:18px}
+  .sample-tag{
+    font-size:11.5px;background:var(--butter-soft);color:var(--butter);
+    border-radius:999px;padding:2px 10px;font-weight:700;letter-spacing:.05em;flex:none;
+  }
+  .age-big{display:flex;align-items:baseline;gap:6px;margin:2px 0 12px}
+  .age-num{font-family:var(--font-disp);font-size:52px;line-height:1;color:var(--accent);font-variant-numeric:tabular-nums}
+  .age-unit{color:var(--ink-2);font-size:14px}
+  .profile-facts{display:grid;gap:9px;margin:0}
+  .pf{display:grid;grid-template-columns:76px 1fr;gap:10px;font-size:13.5px;border-top:1px dashed var(--line);padding-top:9px}
+  .pf dt{color:var(--ink-2);margin:0}
+  .pf dd{margin:0}
+  .birth-row{margin-top:16px;border-top:1px solid var(--line);padding-top:14px}
+  .birth-row label{display:block;font-size:13px;color:var(--ink-2);margin-bottom:6px}
+  .birth-row input[type=date]{
+    width:100%;padding:9px 12px;border:1px solid var(--line);border-radius:10px;
+    background:var(--ground);color:var(--ink);font-family:inherit;font-size:14px;
+  }
+
+  .topic-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:26px}
+  .topic-card{
+    display:flex;gap:14px;align-items:flex-start;text-align:left;
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px;cursor:pointer;transition:transform .15s,box-shadow .15s,border-color .15s;
+    color:var(--ink);
+  }
+  .topic-card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+  .seal{
+    flex:none;width:44px;height:44px;border-radius:13px;
+    font-family:var(--font-disp);font-size:22px;display:grid;place-items:center;
+  }
+  .seal-food{background:var(--butter-soft);color:var(--t-food)}
+  .seal-sleep{background:color-mix(in srgb,var(--t-sleep) 14%,transparent);color:var(--t-sleep)}
+  .seal-potty{background:color-mix(in srgb,var(--t-potty) 14%,transparent);color:var(--t-potty)}
+  .seal-sens{background:color-mix(in srgb,var(--t-sens) 14%,transparent);color:var(--t-sens)}
+  .seal-daily{background:color-mix(in srgb,var(--t-daily) 14%,transparent);color:var(--t-daily)}
+  .seal-vax{background:var(--accent-soft);color:var(--t-vax)}
+  .topic-card b{display:block;font-size:15.5px;margin-bottom:3px}
+  .topic-card span{font-size:13px;color:var(--ink-2);line-height:1.6;display:block}
+
+  .rhyme{
+    margin-top:30px;background:var(--surface);border:1px solid var(--line);
+    border-radius:var(--radius);padding:20px 22px;
+  }
+  .rhyme-title{font-size:12px;letter-spacing:.22em;font-weight:700;color:var(--ink-2);margin:0 0 12px}
+  .rhyme-row{display:flex;flex-wrap:wrap;gap:10px}
+  .rhyme-chip{
+    display:flex;flex-direction:column;align-items:center;gap:2px;
+    background:var(--surface-2);border-radius:12px;padding:10px 14px;min-width:72px;
+  }
+  .rhyme-chip b{font-family:var(--font-disp);font-size:19px;font-weight:400}
+  .rhyme-chip span{font-size:11.5px;color:var(--ink-2)}
+
+  /* ============ 表格 ============ */
+  .tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+  table.tbl{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
+  .tbl th{
+    text-align:left;font-size:12.5px;color:var(--ink-2);font-weight:700;
+    padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap;
+    background:var(--surface-2);
+  }
+  .tbl td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.7}
+  .tbl tr:last-child td{border-bottom:0}
+  .tbl td:first-child{white-space:nowrap;font-weight:700}
+
+  /* ============ 列表 / 提示条 ============ */
+  ul.dots{margin:0;padding-left:1.3em}
+  ul.dots li{margin-bottom:7px}
+  ul.dots li:last-child{margin-bottom:0}
+  ul.none{list-style:none;margin:0;padding:0}
+  ul.none li{margin-bottom:9px;display:flex;gap:9px;align-items:flex-start}
+  ul.none li:last-child{margin-bottom:0}
+
+  .note{
+    display:flex;gap:10px;align-items:flex-start;
+    border-radius:12px;padding:13px 15px;font-size:13.5px;line-height:1.7;
+    margin-top:16px;
+  }
+  .note b{flex:none}
+  .note-ok{background:var(--ok-soft);color:var(--ok)}
+  .note-warn{background:var(--warn-soft);color:var(--warn)}
+  .note-bad{background:var(--bad-soft);color:var(--bad)}
+  .note span{color:var(--ink)}
+
+  .steps{list-style:none;counter-reset:st;margin:0;padding:0}
+  .steps li{
+    counter-increment:st;position:relative;padding:0 0 22px 52px;
+  }
+  .steps li:last-child{padding-bottom:0}
+  .steps li::before{
+    content:counter(st);position:absolute;left:0;top:0;
+    width:34px;height:34px;border-radius:50%;
+    background:var(--t-potty);color:#fff;font-family:var(--font-disp);
+    display:grid;place-items:center;font-size:17px;
+  }
+  .steps li::after{
+    content:"";position:absolute;left:16.5px;top:38px;bottom:6px;width:1.5px;
+    background:var(--line);
+  }
+  .steps li:last-child::after{display:none}
+  .steps b{display:block;margin-bottom:3px;font-size:15px}
+  .steps p{margin:0;color:var(--ink-2);font-size:13.5px}
+
+  /* ============ 清单（可勾选） ============ */
+  .checks{display:grid;gap:2px}
+  .check{
+    display:flex;gap:11px;align-items:flex-start;cursor:pointer;
+    padding:9px 10px;border-radius:10px;transition:background .12s;
+  }
+  .check:hover{background:var(--surface-2)}
+  .check input{
+    appearance:none;-webkit-appearance:none;flex:none;width:19px;height:19px;
+    border:2px solid var(--line);border-radius:6px;margin-top:4px;cursor:pointer;
+    background:var(--surface);position:relative;transition:border-color .12s,background .12s;
+  }
+  .check input:checked{background:var(--ok);border-color:var(--ok)}
+  .check input:checked::after{
+    content:"";position:absolute;left:4.5px;top:1px;width:5px;height:9px;
+    border:solid #fff;border-width:0 2px 2px 0;transform:rotate(42deg);
+  }
+  .check span{font-size:14px;line-height:1.65}
+  .check input:checked + span{color:var(--ink-2)}
+  .check small{display:block;color:var(--ink-2);font-size:12.5px}
+
+  /* ============ 睡眠夜间卡 ============ */
+  .night{
+    background:var(--night);color:var(--night-ink);
+    border-radius:18px;padding:26px;position:relative;overflow:hidden;
+  }
+  .night::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(circle at 82% 18%,rgba(234,237,248,.9) 0 2.5px,transparent 3.5px),
+      radial-gradient(circle at 71% 32%,rgba(234,237,248,.45) 0 1.5px,transparent 2.5px),
+      radial-gradient(circle at 90% 46%,rgba(234,237,248,.45) 0 1.5px,transparent 2.5px),
+      radial-gradient(circle at 63% 12%,rgba(234,237,248,.3) 0 1.2px,transparent 2.2px),
+      radial-gradient(circle at 900px -80px,rgba(120,140,220,.28),transparent 260px);
+  }
+  .night > *{position:relative}
+  .night h3{color:var(--night-ink)}
+  .night .nk{color:var(--night-ink-2)}
+  .night-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:16px}
+  .night-item{background:var(--night-2);border-radius:12px;padding:14px 16px}
+  .night-item b{display:block;font-size:14.5px;margin-bottom:4px}
+  .night-item p{margin:0;font-size:13px;color:var(--night-ink-2);line-height:1.65}
+
+  /* ============ 疫苗表 ============ */
+  .vax-tbl tr.done td{color:var(--ink-2)}
+  .vax-tbl td .cell-name{display:flex;align-items:center;gap:9px}
+  .vax-check{
+    appearance:none;-webkit-appearance:none;width:19px;height:19px;flex:none;
+    border:2px solid var(--line);border-radius:50%;cursor:pointer;
+    background:var(--surface);position:relative;transition:border-color .12s,background .12s;
+  }
+  .vax-check:checked{background:var(--ok);border-color:var(--ok)}
+  .vax-check:checked::after{
+    content:"";position:absolute;left:4.5px;top:1px;width:5px;height:9px;
+    border:solid #fff;border-width:0 2px 2px 0;transform:rotate(42deg);
+  }
+  .badge{
+    display:inline-block;font-size:11.5px;font-weight:700;border-radius:999px;
+    padding:2px 9px;white-space:nowrap;letter-spacing:.03em;
+  }
+  .badge-due{background:var(--accent-soft);color:var(--accent)}
+  .badge-done{background:var(--ok-soft);color:var(--ok)}
+  .badge-future{background:var(--surface-2);color:var(--ink-2)}
+
+  /* ============ 辅食观察记录 ============ */
+  .obs-form{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}
+  .obs-form input{
+    flex:1;min-width:150px;padding:9px 12px;border:1px solid var(--line);
+    border-radius:10px;background:var(--ground);color:var(--ink);font-family:inherit;font-size:14px;
+  }
+  .btn{
+    border:0;border-radius:10px;padding:9px 18px;font-size:14px;font-weight:700;
+    background:var(--accent);color:var(--on-accent);cursor:pointer;transition:filter .12s;
+  }
+  .btn:hover{filter:brightness(1.06)}
+  .btn-ghost{background:var(--surface-2);color:var(--ink)}
+  .obs-list{display:grid;gap:9px;margin-top:14px}
+  .obs-row{
+    display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+    background:var(--surface-2);border-radius:12px;padding:11px 15px;
+  }
+  .obs-row b{font-size:14.5px}
+  .obs-row .muted{font-size:12.5px}
+  .obs-del{
+    margin-left:auto;border:0;background:none;color:var(--ink-2);cursor:pointer;
+    font-size:16px;line-height:1;padding:4px 6px;border-radius:6px;
+  }
+  .obs-del:hover{color:var(--bad);background:var(--bad-soft)}
+
+  .faq{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+  .faq li{
+    background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:14px 17px;
+  }
+  .faq b{display:block;margin-bottom:3px;font-size:14.5px}
+  .faq p{margin:0;color:var(--ink-2);font-size:13.5px;line-height:1.75}
+
+  footer{
+    border-top:1px solid var(--line);padding-block:26px;
+    color:var(--ink-2);font-size:12.5px;line-height:1.8;
+  }
+
+  @media (max-width:560px){
+    .card{padding:17px}
+    .profile{padding:16px}
+    .topbar-in{gap:10px}
+    .brand-name{display:none}
+  }
+
+  /* 站酷快乐体为单一字重，统一 400 避免浏览器伪加粗，靠字号与留白立住版面 */
+  .brand-seal,.brand-name,.sec-head h2,h3,.age-num,.profile-title,.seal,.rhyme-chip b,.steps li::before,.hero h1{font-weight:400}
+  .hero h1{letter-spacing:.01em}
+</style>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <button class="brand" data-goto="home" type="button" aria-label="回到首页">
+      <span class="brand-seal">宝</span>
+      <span class="brand-name">宝宝成长手册</span>
+    </button>
+    <nav class="tabs" id="tabs" aria-label="栏目导航">
+      <button class="tab" data-tab="home" type="button">首页</button>
+      <button class="tab" data-tab="food" type="button">辅食</button>
+      <button class="tab" data-tab="sleep" type="button">睡眠</button>
+      <button class="tab" data-tab="potty" type="button">如厕训练</button>
+      <button class="tab" data-tab="sensory" type="button">感统训练</button>
+      <button class="tab" data-tab="daily" type="button">日常训练</button>
+      <button class="tab" data-tab="vax" type="button">疫苗</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ==================== 首页 ==================== -->
+  <section class="page" id="home">
+    <div class="hero">
+      <div>
+        <p class="eyebrow" style="color:var(--accent)">给新手妈妈的带娃手册</p>
+        <h1>把带娃这件事，<br>一件一件讲清楚。</h1>
+        <p class="sub">辅食怎么加、夜醒怎么办、如厕训练什么时候开始、疫苗下一针是什么时候——按月龄整理好的实用知识，不贩卖焦虑，只给能上手的做法。</p>
+        <ul class="hero-tags">
+          <li>0~3 岁适用</li>
+          <li>按宝宝月龄自动匹配</li>
+          <li>参考国家免疫规划与权威指南</li>
+        </ul>
+        <div class="rhyme">
+          <p class="rhyme-title">大运动口诀 · 先记这一句</p>
+          <div class="rhyme-row">
+            <div class="rhyme-chip"><b>二抬</b><span>2月 抬头</span></div>
+            <div class="rhyme-chip"><b>四翻</b><span>4月 翻身</span></div>
+            <div class="rhyme-chip"><b>六坐</b><span>6月 独坐</span></div>
+            <div class="rhyme-chip"><b>七滚</b><span>7月 打滚</span></div>
+            <div class="rhyme-chip"><b>八爬</b><span>8月 爬行</span></div>
+            <div class="rhyme-chip"><b>周走</b><span>12月 独走</span></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="profile" id="profileCard">
+        <div class="profile-top">
+          <span class="profile-title">宝宝档案</span>
+          <span class="sample-tag" id="sampleTag" hidden>示例宝宝</span>
+        </div>
+        <div class="age-big">
+          <span class="age-num" id="ageNum">6</span>
+          <span class="age-unit" id="ageUnit">个月</span>
+        </div>
+        <dl class="profile-facts">
+          <div class="pf"><dt>辅食阶段</dt><dd id="pfFood">—</dd></div>
+          <div class="pf"><dt>睡眠总量</dt><dd id="pfSleep">—</dd></div>
+          <div class="pf"><dt>白天小睡</dt><dd id="pfNap">—</dd></div>
+          <div class="pf"><dt>运动重点</dt><dd id="pfMotor">—</dd></div>
+          <div class="pf"><dt>下一针疫苗</dt><dd id="pfVax">—</dd></div>
+        </dl>
+        <div class="birth-row">
+          <label for="birthInput">宝宝的出生日期（填入后，本页与疫苗页会自动更新）</label>
+          <input type="date" id="birthInput">
+        </div>
+      </aside>
+    </div>
+
+    <div class="topic-grid">
+      <button class="topic-card" data-goto="food" type="button">
+        <span class="seal seal-food">食</span>
+        <span><b>辅食</b><span>什么时候加、性状怎么变、哪些不能吃；附新食物 3 天观察记录。</span></span>
+      </button>
+      <button class="topic-card" data-goto="sleep" type="button">
+        <span class="seal seal-sleep">眠</span>
+        <span><b>睡眠</b><span>各月龄睡多久、安全睡眠规矩、睡眠仪式与自主入睡方法。</span></span>
+      </button>
+      <button class="topic-card" data-goto="potty" type="button">
+        <span class="seal seal-potty">厕</span>
+        <span><b>如厕训练</b><span>看信号不看月龄：就绪自测清单、五步训练法与倒退应对。</span></span>
+      </button>
+      <button class="topic-card" data-goto="sensory" type="button">
+        <span class="seal seal-sens">感</span>
+        <span><b>感统训练</b><span>前庭觉、本体觉、触觉是什么，分月龄的家庭感统游戏。</span></span>
+      </button>
+      <button class="topic-card" data-goto="daily" type="button">
+        <span class="seal seal-daily">动</span>
+        <span><b>日常训练</b><span>大运动、精细动作、语言与自理能力的里程碑对照表和警示信号。</span></span>
+      </button>
+      <button class="topic-card" data-goto="vax" type="button">
+        <span class="seal seal-vax">苗</span>
+        <span><b>疫苗</b><span>国家免疫规划全表 + 自费疫苗怎么选，可按宝宝月龄打卡。</span></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ==================== 辅食 ==================== -->
+  <section class="page" id="food">
+    <div class="sec-head">
+      <p class="eyebrow">辅食 · 6 月龄起</p>
+      <h2>一口一口来，不急不比</h2>
+      <p class="lead">辅食的目标不只是"吃进去"，而是在一年左右的时间里，让宝宝从泥糊状过渡到家庭饭菜，学会咀嚼、接受不同味道，并保证铁等关键营养。首年辅食是"配角"，奶仍然是主食。</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>可以开始的信号</h3>
+        <ul class="dots">
+          <li><b>满 6 月龄左右</b>（约 180 天），这是大多数权威指南建议的时间点；</li>
+          <li>靠坐或独坐稳，头能竖得很直；</li>
+          <li>挺舌反射消失：勺子放进嘴里不再用舌头顶出来；</li>
+          <li>对大人的食物表现出兴趣，盯着看、伸手抓、张嘴；</li>
+          <li>体重 6.5 kg 以上且发育正常。</li>
+        </ul>
+        <div class="note note-warn"><b>不着急</b><span>早于满 4 个月添加辅食没有必要；也不要晚于 7~8 个月，否则错过咀嚼敏感期、铁储备也会告急。</span></div>
+      </div>
+      <div class="card">
+        <h3>六条基本原则</h3>
+        <ul class="dots">
+          <li><b>首选高铁食物</b>：强化铁米粉、红肉泥（猪肉、牛肉）、肝泥，而不是先喝米汤、吃果泥；</li>
+          <li><b>一次只加一种新食物</b>，观察 2~3 天无异常再加下一种；</li>
+          <li>性状<b>由稀到稠、由细到粗</b>，跟着月龄走（见下表）；</li>
+          <li>1 岁前<b>不加盐、不加糖</b>，原味就是最好的味道；</li>
+          <li>继续保证奶量：7~12 月龄每天 600 ml 左右母乳／配方奶；</li>
+          <li>允许抓、抹、吐，弄脏是学习的必经之路。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="block">
+      <h3>性状进度表</h3>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>月龄</th><th>性状</th><th>举例</th><th>要点</th></tr></thead>
+          <tbody>
+            <tr><td>6 月</td><td>细泥糊状</td><td>高铁米粉、南瓜泥、红薯泥、红肉泥</td><td>勺喂为主，从 1~2 勺开始，吃多少宝宝说了算</td></tr>
+            <tr><td>7~8 月</td><td>稠泥、末状</td><td>稠粥、碎菜末、肉末、蛋黄泥</td><td>引入手指食物：蒸软的胡萝卜条、香蕉块</td></tr>
+            <tr><td>9~11 月</td><td>碎块状、软固体</td><td>软米饭、小面片、剁碎的肉菜</td><td>鼓励自己抓食、咬嚼，食指对捏捏起小粒</td></tr>
+            <tr><td>12~17 月</td><td>小块家庭饭菜</td><td>和大人同菜，少油少盐单独盛</td><td>可少量植物油；仍整粒坚果、整颗葡萄不能给</td></tr>
+            <tr><td>18 月+</td><td>接近成人</td><td>正常家庭餐</td><td>口味清淡的习惯继续保留，和家人同桌进餐</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid-2 block">
+      <div class="card">
+        <h3>容易过敏的食物，怎么加</h3>
+        <p class="muted small" style="margin-top:0">鸡蛋、花生（以酱／泥形式）、鱼虾、大豆、小麦等，目前主流做法是<b>正常月龄正常加，不刻意推迟</b>——推迟并不能预防过敏。</p>
+        <ul class="dots">
+          <li>同样遵循"一次一种、观察 2~3 天"；</li>
+          <li>鸡蛋先蛋黄后全蛋，从少量试起；</li>
+          <li>花生用花生酱抹在米粉／面包上，绝不给整颗；</li>
+          <li>出现口周红肿、皮疹、呕吐、腹泻 → 停掉该食物并记录，下次就医时告知医生；</li>
+          <li>嘴唇肿、声音嘶哑、呼吸急促 → <b>立即就医</b>。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>这些不要给</h3>
+        <ul class="none">
+          <li>🍯 <span><b>蜂蜜</b>（1 岁前）——肉毒杆菌中毒风险，包括蜂蜜水、含蜂蜜的零食。</span></li>
+          <li>🥜 <span><b>整颗坚果、整粒葡萄、果冻、大块硬物</b>（4 岁前）——窒息高危；葡萄和小番茄要对半切开。</span></li>
+          <li>🧂 <span><b>盐、糖、调味品</b>（1 岁前）——加重肾脏负担、养成重口味。</span></li>
+          <li>🥛 <span><b>鲜奶、低脂奶当主食</b>（1 岁前）——可用酸奶、奶酪少量佐餐。</span></li>
+          <li>🧃 <span><b>果汁</b>——1 岁前不建议，1 岁后也严格限量，吃果肉比喝果汁好。</span></li>
+          <li>🍺 <span><b>酒精、浓茶、咖啡因</b>——任何年龄都不行，包括醪糟、酒心巧克力。</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid-2 block">
+      <div class="card">
+        <h3>8 月龄示例菜单</h3>
+        <div class="tbl-wrap" style="border:0">
+          <table class="tbl">
+            <tbody>
+              <tr><td>7:00</td><td>奶 200 ml</td></tr>
+              <tr><td>10:00</td><td>高铁米粉 + 蛋黄泥 + 西兰花泥</td></tr>
+              <tr><td>12:00</td><td>猪肉末稠粥 + 南瓜条（手指食物）</td></tr>
+              <tr><td>15:00</td><td>奶 200 ml + 香蕉块</td></tr>
+              <tr><td>18:00</td><td>碎菜小面片 + 鱼肉泥</td></tr>
+              <tr><td>21:00</td><td>奶 200 ml（睡前奶，喝完刷牙）</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="muted small">量只是示意，以宝宝的食欲为准：今天吃一半、明天吃两倍都正常。</p>
+      </div>
+      <div class="card" id="obsCard">
+        <h3>新食物观察记录</h3>
+        <p class="muted small" style="margin-top:0">每加一种新食物，连续观察 2~3 天。记下来就不怕忘记今天是第几天。</p>
+        <div class="obs-form">
+          <input type="text" id="obsInput" placeholder="食物名，如：牛肉泥" maxlength="12">
+          <button class="btn" id="obsAdd" type="button">开始观察</button>
+        </div>
+        <div class="obs-list" id="obsList"></div>
+      </div>
+    </div>
+
+    <div class="note note-bad block"><b>窒息急救</b><span>宝宝噎住、无法哭喊或咳嗽时，立即采用婴儿版海姆立克（1 岁内：面朝下头低位拍背 5 次 + 翻转压胸 5 次交替），并呼救。建议所有照护者提前学一遍实操，关键时能救命。</span></div>
+  </section>
+
+  <!-- ==================== 睡眠 ==================== -->
+  <section class="page" id="sleep">
+    <div class="sec-head">
+      <p class="eyebrow">睡眠 · 全家的充电站</p>
+      <h2>睡得好，是习惯不是天赋</h2>
+      <p class="lead">宝宝的睡眠由神经系统发育决定，有其规律。能改变的是环境与习惯：固定的仪式、安全的床、一致的回应方式。先把安全感做足，再谈"睡整觉"。</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>各月龄睡多久（24 小时总量）</h3>
+        <div class="tbl-wrap" style="border:0">
+          <table class="tbl">
+            <thead><tr><th>月龄</th><th>总睡眠</th><th>白天小睡</th></tr></thead>
+            <tbody>
+              <tr><td>0~3 月</td><td>14~17 小时</td><td>3~5 次，昼夜尚不分</td></tr>
+              <tr><td>4~12 月</td><td>12~16 小时</td><td>2~3 次</td></tr>
+              <tr><td>1~2 岁</td><td>11~14 小时</td><td>1~2 次</td></tr>
+              <tr><td>3~5 岁</td><td>10~13 小时</td><td>多数 1 次午睡</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="muted small">这是参考区间，不是 KPI。宝宝之间相差 1~2 小时都很常见，看白天的状态比看数字更重要。</p>
+      </div>
+      <div class="card">
+        <h3>清醒窗口：什么时候该睡了</h3>
+        <p class="muted small" style="margin-top:0">醒着坚持太久反而过度疲劳，会更难入睡。"清醒窗口"是两次睡眠之间的合适清醒时长：</p>
+        <div class="tbl-wrap" style="border:0">
+          <table class="tbl">
+            <tbody>
+              <tr><td>3 月</td><td>约 1~1.5 小时</td></tr>
+              <tr><td>6 月</td><td>约 2~2.5 小时</td></tr>
+              <tr><td>9 月</td><td>约 2.5~3.5 小时</td></tr>
+              <tr><td>12 月</td><td>约 3~4 小时</td></tr>
+              <tr><td>18 月+</td><td>约 5~6 小时</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="muted small">信号优先于时间表：揉眼、打哈欠、眼神发直就是"该准备了"。</p>
+      </div>
+    </div>
+
+    <div class="block night">
+      <h3>安全睡眠 · 夜里的规矩</h3>
+      <p class="nk" style="margin:0 0 4px">这一组规则适用于 1 岁内，是预防婴儿猝死综合征（SIDS）最有效的做法，每一条都不能打折：</p>
+      <div class="night-grid">
+        <div class="night-item"><b>仰卧入睡</b><p>每次睡觉都仰卧，直到 1 岁。会自己翻身后，翻过去可以不干预。</p></div>
+        <div class="night-item"><b>床里什么都不要</b><p>硬床垫＋贴合的床单，无枕头、无被子、无毛绒玩具、无床围。</p></div>
+        <div class="night-item"><b>同房不同床</b><p>婴儿床放在大人床边，至少坚持到 6 个月，理想是 1 岁。</p></div>
+        <div class="night-item"><b>不过热</b><p>摸后颈温热不出汗为准；睡袋比盖被子更安全，按室温选厚度。</p></div>
+        <div class="night-item"><b>无烟环境</b><p>避免二手烟、三手烟；哺乳后拍嗝再放床。</p></div>
+        <div class="night-item"><b>安抚奶嘴</b><p>入睡时可给（母乳稳定后），不用绳挂脖子上。</p></div>
+      </div>
+    </div>
+
+    <div class="grid-2 block">
+      <div class="card">
+        <h3>睡眠仪式：20 分钟的魔法</h3>
+        <p class="muted small" style="margin-top:0">每天按同样顺序做同样的事，宝宝会形成"接下来要睡觉了"的条件反射。示例流程：</p>
+        <ol class="steps">
+          <li><b>洗澡或洗脸、洗屁屁</b><p>温水从玩闹模式切换到安静模式。</p></li>
+          <li><b>抚触／换睡衣</b><p>调暗灯光，只留小夜灯。</p></li>
+          <li><b>最后一顿奶</b><p>喝完清洁牙龈或刷牙——出牙后必须刷。</p></li>
+          <li><b>1~2 本固定的绘本</b><p>声音越来越低，节奏越来越慢。</p></li>
+          <li><b>关灯、放床、道晚安</b><p>同一句"晚安，妈妈在"，说完离开或陪在旁边，方式保持一致。</p></li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>帮宝宝学会自己入睡</h3>
+        <ul class="dots">
+          <li><b>核心原则</b>：把"入睡"和"吃奶／抱晃"解绑，给宝宝在床上迷糊着入睡的机会；</li>
+          <li><b>温和渐进</b>：嘘拍安抚 → 逐渐减少拍的程度 → 坐在旁边陪 → 只是语言回应。每 2~3 天退一小步；</li>
+          <li><b>法伯法</b>（渐进等待）：放下后按 3、5、8 分钟递进进去安抚，适合心比较"狠"得出手的家庭，且宝宝已满 4~5 个月；</li>
+          <li><b>夜醒先等 2~3 分钟</b>：很多哼唧是睡眠周期切换，介入太快反而吵醒；</li>
+          <li><b>昼夜节律</b>：白天拉开窗帘、多出门见光；夜里喂奶换尿布都开最暗的光、不逗玩。</li>
+        </ul>
+        <div class="note note-ok"><b>倒退期不是退步</b><span>4 个月（睡眠结构成人化）、8~10 个月（分离焦虑）、12~18 个月（大运动飞跃）都会短期夜醒增多。保持做法一致，通常 1~2 周自己过去。</span></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h3>高频问题</h3>
+      <ul class="faq">
+        <li><b>"频繁夜奶怎么办？"</b><p>6 月龄后夜奶更多是习惯而非营养需要。可逐晚减量（每 2~3 天减 20~30 ml）或拉开间隔、用拍拍替代，白天把奶吃够。</p></li>
+        <li><b>"必须奶睡／抱睡才能睡着，要紧吗？"</b><p>小月龄很正常，不必焦虑。想调整时用"提前 5 分钟放床"开始：迷糊但还醒着时放下，逐步提前。</p></li>
+        <li><b>"白天不睡，晚上会不会更累更好睡？"</b><p>恰恰相反——缺觉导致过度疲劳，夜醒更多。白天睡够，夜里才睡得稳。</p></li>
+        <li><b>"什么时候能睡整觉？"</b><p>多数宝宝在 6 个月后能连睡 6 小时以上，1~2 岁间逐渐能睡 10~12 小时。这是范围，不是截止日期。</p></li>
+        <li><b>"婴儿床要不要睡？"</b><p>建议同房不同床。夜间喂奶可以把宝宝抱到床上喂，吃完放回小床。</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ==================== 如厕训练 ==================== -->
+  <section class="page" id="potty">
+    <div class="sec-head">
+      <p class="eyebrow">如厕训练 · 看信号不看月龄</p>
+      <h2>不比赛、不提前、不惩罚</h2>
+      <p class="lead">如厕训练不是越早越好。宝宝的膀胱控制和括约肌成熟有自己的时间表，多数孩子在 18~30 个月之间完成白天的训练。任务是"帮他自己学会"，而不是"教会他"。</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>就绪信号自测</h3>
+        <p class="muted small" style="margin-top:0">勾选已经出现的表现（会自动保存）。大多数项都出现了，就可以开始；只中了一两项，再等等。</p>
+        <div class="checks" id="readyChecks">
+          <label class="check"><input type="checkbox" data-r="0"><span>能走路、走得稳，能自己坐到小马桶上</span></label>
+          <label class="check"><input type="checkbox" data-r="1"><span>能听懂简单指令（"去拿鞋""坐下"）</span></label>
+          <label class="check"><input type="checkbox" data-r="2"><span>尿裤能保持干燥 2 小时以上，或午睡后是干的</span></label>
+          <label class="check"><input type="checkbox" data-r="3"><span>尿湿／拉了会表示不舒服，或提前告诉你要尿尿</span></label>
+          <label class="check"><input type="checkbox" data-r="4"><span>对大人上厕所表现出好奇、想模仿</span></label>
+          <label class="check"><input type="checkbox" data-r="5"><span>能自己拉下、提上裤子（帮忙也算）</span></label>
+          <label class="check"><input type="checkbox" data-r="6"><span>排便时间变得规律、可预测</span></label>
+        </div>
+        <p class="small" style="margin-bottom:0" id="readyResult"></p>
+      </div>
+      <div class="card">
+        <h3>开始前的准备</h3>
+        <ul class="dots">
+          <li><b>挑对时机</b>：避开搬家、换看护人、妈妈生二胎、生病住院等压力期；</li>
+          <li><b>装备就位</b>：小马桶或马桶圈＋脚踏凳（脚要踩得到实处才拉得出大便）、易穿脱的裤子；</li>
+          <li><b>统一阵线</b>：提前和老人、阿姨说好做法一致——不惩罚、不嘲笑、不把便；</li>
+          <li><b>心理建设</b>：先读几本如厕主题的绘本，让宝宝对"小马桶"有好感；</li>
+          <li><b>选对季节</b>：夏天衣物少、洗晒方便，实操更容易。</li>
+        </ul>
+        <div class="note note-warn"><b>不建议</b><span>1 岁前开始的"把尿"式训练只是训练了大人的条件反射，还可能增加排便抗拒和尿路问题。</span></div>
+      </div>
+    </div>
+
+    <div class="block card">
+      <h3>五步训练法</h3>
+      <ol class="steps">
+        <li><b>引入（1~2 周）</b><p>把小马桶放在固定位置当"熟人"，让宝宝穿着衣服坐上去玩、看绘本；大人上厕所时不回避，边做边讲解。</p></li>
+        <li><b>固定时间坐一坐（不强迫）</b><p>晨起后、饭后 20~30 分钟、睡前，各坐 3~5 分钟。可以定个小沙漏，到点就起来，不为了"拉出来"加时。</p></li>
+        <li><b>成功了就具体表扬</b><p>"尿在小马桶里了，你自己会照顾自己了！"奖励贴纸可以，但不要用食物或"礼物升级"。</p></li>
+        <li><b>白天先穿内裤／拉拉裤</b><p>玩一周左右坐马桶后，白天换训练裤或内裤，湿了能有体感。弄脏了平静换洗："下次告诉妈妈，我们来坐马桶。"</p></li>
+        <li><b>午睡和夜间最后练</b><p>白天连续保持干爽数周、午睡醒来是干的，再撤午睡尿裤；夜间干醒可能晚到 3~5 岁，不急。</p></li>
+      </ol>
+    </div>
+
+    <div class="block">
+      <h3>出状况怎么办</h3>
+      <ul class="faq">
+        <li><b>练得好好的突然倒退了</b><p>倒退几乎都事出有因：环境变化、生了弟弟妹妹、生病、如厕压力太大。回到尿裤两周，减压后再来，不要提"你怎么又不会了"。</p></li>
+        <li><b>抗拒坐马桶、一坐就哭</b><p>立刻暂停 2~4 周，期间只保留绘本和示范，把"马桶"和"不愉快"的连接断掉再重启。</p></li>
+        <li><b>憋大便／只肯站着拉</b><p>先排查是否便秘（大便干硬、肛门裂痛会让孩子怕拉）。软化大便（水分、西梅泥、火龙果，必要时遵医嘱用乳果糖），脚踩实小凳坐姿放松。</p></li>
+        <li><b>尿床到几岁算正常</b><p>5 岁以内偶尔尿床都属正常发育范围，不叫醒夜尿、不惩罚。5 岁后仍频繁尿床可就诊儿童遗尿门诊。</p></li>
+        <li><b>女孩擦屁屁</b><p>教"从前往后擦"，避免肠道细菌带到尿道；早期由大人收尾。</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ==================== 感统训练 ==================== -->
+  <section class="page" id="sensory">
+    <div class="sec-head">
+      <p class="eyebrow">感统训练 · 在玩耍里长能力</p>
+      <h2>最好的感统教室，是地板和小区</h2>
+      <p class="lead">感统（感觉统合）指大脑把前庭觉（平衡）、本体觉（身体位置）和触觉等信息组织起来的能力，是专注力、协调性和情绪稳定的地基。它不是昂贵的早教课——爬行、跑跳、玩水玩沙、被拥抱，就是最好的训练。</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <h3>前庭觉 · 平衡</h3>
+        <p class="muted small" style="margin-top:0">管"我在不在平衡、动得多快"。适度的高低、快慢、旋转变化，帮助它发育。</p>
+        <ul class="dots small">
+          <li>抱着轻晃、坐大人腿上颠</li>
+          <li>滑梯、秋千、转椅（适量）</li>
+          <li>走马路牙子、平衡木</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>本体觉 · 身体地图</h3>
+        <p class="muted small" style="margin-top:0">管"我的胳膊腿在哪、用多大劲"。出力气的游戏最养它。</p>
+        <ul class="dots small">
+          <li>爬行、爬楼梯、攀爬架</li>
+          <li>推小车、搬重物、拔河</li>
+          <li>捏橡皮泥、撕纸、拍球</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>触觉 · 认识世界</h3>
+        <p class="muted small" style="margin-top:0">皮肤是最大的感觉器官，丰富安全的触感输入让情绪更稳定。</p>
+        <ul class="dots small">
+          <li>抚触按摩、拥抱（每天）</li>
+          <li>玩水、玩沙、玩米豆</li>
+          <li>不同材质：毛巾、纱布、刷子</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="block">
+      <h3>分月龄在家玩</h3>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>月龄</th><th>训练重点</th><th>在家就能玩</th></tr></thead>
+          <tbody>
+            <tr><td>0~3 月</td><td>触觉输入、视听追踪、俯趴</td><td>每天抚触按摩；清醒时看护下俯趴（tummy time），从几十秒逐渐加量；黑白卡／红球左右移动追视，摇铃在两侧摇响找声源</td></tr>
+            <tr><td>4~6 月</td><td>翻身、重心转移</td><td>用玩具逗引翻身；拉着坐起＋被动操；抱坐大龙球轻轻上下颠；摸不同材质的布书</td></tr>
+            <tr><td>7~12 月</td><td>爬行（感统关键期）、手部精细</td><td>把玩具放远一点逼出"爬"；钻纸箱隧道、爬楼梯垫；撕纸、捏溶豆（对捏）；玩水玩沙</td></tr>
+            <tr><td>13~18 月</td><td>走稳、蹲起、投掷</td><td>走草地、沙滩等不平地面；推小推车；滚球互相踢；叠叠杯、套圈、拧瓶盖</td></tr>
+            <tr><td>19~24 月</td><td>平衡、双脚离地</td><td>走直线／马路牙子；双脚跳下最后一级台阶；滑梯；串大珠子、玩橡皮泥、涂鸦</td></tr>
+            <tr><td>25~36 月</td><td>协调、组合动作</td><td>单脚站几秒、双脚交替上楼梯；踩小三轮车；抛接大球；沿胶带贴的线走"独木桥"；沙池寻宝</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted small" style="margin-top:10px">每次 10~20 分钟、宝宝有兴趣就够，游戏难度 = 现有能力 + 一点点挑战。孩子主导，大人陪玩，不打卡不考核。</p>
+    </div>
+
+    <div class="grid-2 block">
+      <div class="note note-bad" style="margin-top:0"><b>安全红线</b><span>永远不摇晃婴儿的头（剧烈摇晃会导致摇晃综合征）；俯趴、玩水必须全程看护；小珠子、纽扣电池等小物件收好。</span></div>
+      <div class="note note-warn" style="margin-top:0"><b>什么时候找专业评估</b><span>明显比同龄人笨拙、频繁摔跤；极度抗拒旋转／被碰，或反过来疯狂寻求旋转撞击；多个运动里程碑明显落后、伴语言社交落后——去儿童保健科或康复科，别等"长大自然好"。</span></div>
+    </div>
+  </section>
+
+  <!-- ==================== 日常训练 ==================== -->
+  <section class="page" id="daily">
+    <div class="sec-head">
+      <p class="eyebrow">日常训练 · 大运动 · 精细 · 语言 · 自理</p>
+      <h2>里程碑是地图，不是赛跑表</h2>
+      <p class="lead">发展是一条有宽度的走廊，早两个月晚两个月都在正常范围里。这张对照表帮你心里有数：知道"接下来大概会什么"，也看得懂"什么情况该去医院"。</p>
+    </div>
+
+    <div class="block">
+      <h3>0~3 岁发展对照表</h3>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>月龄</th><th>大运动</th><th>精细动作</th><th>语言与认知</th></tr></thead>
+          <tbody>
+            <tr><td>出生~2 月</td><td>俯趴能瞬间抬头；四肢呈屈曲状</td><td>手握拳；抓握反射</td><td>对人声有反应；6 周左右出现社会性微笑</td></tr>
+            <tr><td>3~5 月</td><td>抬头稳、胸离床；4 月左右会翻身</td><td>双手在中线汇合；主动抓物入口</td><td>咿呀对话、会大笑；转头找声源</td></tr>
+            <tr><td>6~8 月</td><td>6 月独坐稳；7~8 月会爬、打滚</td><td>换手传递物品；耙抓小丸</td><td>叫名字有反应；发 ba/ma 音节；认生出现</td></tr>
+            <tr><td>9~11 月</td><td>扶站、扶走；从坐到爬行转换自如</td><td>拇食指对捏小粒；敲打两只积木</td><td>明白"再见""不可以"；有意识叫爸爸／妈妈</td></tr>
+            <tr><td>12~14 月</td><td>12 月左右独站独走几步</td><td>拇食指捏起小丸；自发乱涂；叠 2 块积木</td><td>说 1~2 个有意义的词；正确指认 2~3 个身体部位</td></tr>
+            <tr><td>15~18 月</td><td>走得稳、小跑；蹲下捡东西站起</td><td>叠 3~4 块积木；用勺入口（会洒）</td><td>10~25 个词；按指令做简单事；假装喂娃娃</td></tr>
+            <tr><td>19~24 月</td><td>双脚原地跳、扶栏上楼；踢球</td><td>叠 6 块积木；一页页翻书；拧开瓶盖</td><td>两个词的句子（"妈妈抱"）；能听懂两步指令</td></tr>
+            <tr><td>25~36 月</td><td>单脚站 1~2 秒；双脚交替上楼；蹬三轮车</td><td>仿画圆和直线；用剪刀铰一下；解大纽扣</td><td>说句子、被陌生人听懂大半；会玩想象游戏、问"这是什么"</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid-2 block">
+      <div class="card">
+        <h3>怎么练：每天顺手的做法</h3>
+        <ul class="dots">
+          <li><b>多趴多爬</b>：清醒时尽情俯趴；会爬后把障碍物、隧道安排上——爬得多的宝宝躯干和肩背力量更好，将来握笔也更稳；</li>
+          <li><b>少抱多走</b>：户外时间每天 1~2 小时，走不平的路、上下坡都是训练；</li>
+          <li><b>手要忙</b>：吃饭让手抓、撕纸、捏泥、串珠、倒水倒豆子，家务里的"倒、舀、拧"都是精细课；</li>
+          <li><b>从出生就说话</b>：用"妈妈语"慢慢说、多重复；指着东西命名；宝宝发声后你回应，一来一回就是最好的语言课；</li>
+          <li><b>每天亲子共读</b>：从布书、洞洞书读起，固定睡前时段，读哪页、读多久由宝宝定；</li>
+          <li><b>忍住别代劳</b>：慢一点、乱一点，也让孩子自己吃饭、自己穿鞋——能力是从"被允许搞砸"里长出来的。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>屏幕时间红线</h3>
+        <ul class="dots">
+          <li><b>18 个月前</b>：除视频通话外，不建议接触屏幕；</li>
+          <li><b>18~24 个月</b>：如引入，只看高质量内容且大人陪着讲解；</li>
+          <li><b>2~5 岁</b>：每天累计不超过 1 小时，越少越好，睡前 1 小时不看；</li>
+          <li>吃饭时、卧室里不开屏幕；不看快节奏、强闪烁的内容。</li>
+        </ul>
+        <div class="note note-ok"><b>替代方案</b><span>需要喘口气的 20 分钟，可以用"洗菜玩水盆＋一个塑料杯"顶上——触觉安静游戏同样是训练。</span></div>
+      </div>
+    </div>
+
+    <div class="note note-bad block"><b>警示信号 · 出现就带去看</b><span>3 月龄不追视、逗引不发笑不出声；6 月龄扶站时双腿永远僵硬或松软如布偶；相应月龄的翻身、独坐、爬、扶站等落后 2 个月以上；12 月龄呼唤名字无反应、不发任何单字、不用手指物；任何月龄出现已会技能的倒退。判断口诀："里程碑晚 2 个月，医院走一趟；倒退最要紧，当天就就诊。"</span></div>
+  </section>
+
+  <!-- ==================== 疫苗 ==================== -->
+  <section class="page" id="vax">
+    <div class="sec-head">
+      <p class="eyebrow">疫苗 · 最划算的健康投资</p>
+      <h2>免费疫苗按时打，自费疫苗按需选</h2>
+      <p class="lead">下表是国家免疫规划疫苗（免费，必须接种）的完整程序。填过宝宝生日后，表格会标出"已到月龄应尽快安排"的针次；点圆圈可以记录已接种（保存在你的浏览器里）。</p>
+    </div>
+
+    <div class="block">
+      <h3>国家免疫规划疫苗（免费）</h3>
+      <p class="muted small" style="margin:0 0 10px">程序依据《国家免疫规划疫苗儿童免疫程序（2021 年版）》；如与接种门诊的预约冲突，以门诊安排为准。</p>
+      <div class="tbl-wrap">
+        <table class="tbl vax-tbl" id="vaxTable">
+          <thead><tr><th style="width:44px">已种</th><th>疫苗</th><th>接种月龄</th><th>状态</th></tr></thead>
+          <tbody>
+            <tr data-m="0"><td><input type="checkbox" class="vax-check" data-v="0" aria-label="乙肝疫苗第1剂已接种"></td><td><span class="cell-name">乙肝疫苗 第1剂</span></td><td>出生 24 小时内</td><td></td></tr>
+            <tr data-m="0"><td><input type="checkbox" class="vax-check" data-v="1" aria-label="卡介苗已接种"></td><td><span class="cell-name">卡介苗</span></td><td>出生时</td><td></td></tr>
+            <tr data-m="1"><td><input type="checkbox" class="vax-check" data-v="2" aria-label="乙肝疫苗第2剂已接种"></td><td><span class="cell-name">乙肝疫苗 第2剂</span></td><td>1 月龄</td><td></td></tr>
+            <tr data-m="2"><td><input type="checkbox" class="vax-check" data-v="3" aria-label="脊灰第1剂已接种"></td><td><span class="cell-name">脊灰疫苗 第1剂（注射）</span></td><td>2 月龄</td><td></td></tr>
+            <tr data-m="3"><td><input type="checkbox" class="vax-check" data-v="4" aria-label="脊灰第2剂已接种"></td><td><span class="cell-name">脊灰疫苗 第2剂（注射）</span></td><td>3 月龄</td><td></td></tr>
+            <tr data-m="3"><td><input type="checkbox" class="vax-check" data-v="5" aria-label="百白破第1剂已接种"></td><td><span class="cell-name">百白破疫苗 第1剂</span></td><td>3 月龄</td><td></td></tr>
+            <tr data-m="4"><td><input type="checkbox" class="vax-check" data-v="6" aria-label="脊灰第3剂已接种"></td><td><span class="cell-name">脊灰疫苗 第3剂（口服）</span></td><td>4 月龄</td><td></td></tr>
+            <tr data-m="4"><td><input type="checkbox" class="vax-check" data-v="7" aria-label="百白破第2剂已接种"></td><td><span class="cell-name">百白破疫苗 第2剂</span></td><td>4 月龄</td><td></td></tr>
+            <tr data-m="5"><td><input type="checkbox" class="vax-check" data-v="8" aria-label="百白破第3剂已接种"></td><td><span class="cell-name">百白破疫苗 第3剂</span></td><td>5 月龄</td><td></td></tr>
+            <tr data-m="6"><td><input type="checkbox" class="vax-check" data-v="9" aria-label="乙肝第3剂已接种"></td><td><span class="cell-name">乙肝疫苗 第3剂</span></td><td>6 月龄</td><td></td></tr>
+            <tr data-m="6"><td><input type="checkbox" class="vax-check" data-v="10" aria-label="A群流脑第1剂已接种"></td><td><span class="cell-name">A 群流脑多糖疫苗 第1剂</span></td><td>6 月龄</td><td></td></tr>
+            <tr data-m="8"><td><input type="checkbox" class="vax-check" data-v="11" aria-label="麻腮风第1剂已接种"></td><td><span class="cell-name">麻腮风疫苗 第1剂</span></td><td>8 月龄</td><td></td></tr>
+            <tr data-m="8"><td><input type="checkbox" class="vax-check" data-v="12" aria-label="乙脑第1剂已接种"></td><td><span class="cell-name">乙脑减毒活疫苗 第1剂</span></td><td>8 月龄</td><td></td></tr>
+            <tr data-m="9"><td><input type="checkbox" class="vax-check" data-v="13" aria-label="A群流脑第2剂已接种"></td><td><span class="cell-name">A 群流脑多糖疫苗 第2剂</span></td><td>9 月龄</td><td></td></tr>
+            <tr data-m="18"><td><input type="checkbox" class="vax-check" data-v="14" aria-label="百白破加强已接种"></td><td><span class="cell-name">百白破疫苗 第4剂（加强）</span></td><td>18 月龄</td><td></td></tr>
+            <tr data-m="18"><td><input type="checkbox" class="vax-check" data-v="15" aria-label="麻腮风第2剂已接种"></td><td><span class="cell-name">麻腮风疫苗 第2剂</span></td><td>18 月龄</td><td></td></tr>
+            <tr data-m="18"><td><input type="checkbox" class="vax-check" data-v="16" aria-label="甲肝已接种"></td><td><span class="cell-name">甲肝减毒活疫苗</span></td><td>18 月龄</td><td></td></tr>
+            <tr data-m="24"><td><input type="checkbox" class="vax-check" data-v="17" aria-label="乙脑第2剂已接种"></td><td><span class="cell-name">乙脑减毒活疫苗 第2剂</span></td><td>2 岁</td><td></td></tr>
+            <tr data-m="36"><td><input type="checkbox" class="vax-check" data-v="18" aria-label="A+C群流脑第1剂已接种"></td><td><span class="cell-name">A群C群流脑多糖疫苗 第1剂</span></td><td>3 岁</td><td></td></tr>
+            <tr data-m="48"><td><input type="checkbox" class="vax-check" data-v="19" aria-label="脊灰第4剂已接种"></td><td><span class="cell-name">脊灰疫苗 第4剂（口服加强）</span></td><td>4 岁</td><td></td></tr>
+            <tr data-m="72"><td><input type="checkbox" class="vax-check" data-v="20" aria-label="白破加强已接种"></td><td><span class="cell-name">白喉破伤风联合疫苗（加强）</span></td><td>6 岁</td><td></td></tr>
+            <tr data-m="72"><td><input type="checkbox" class="vax-check" data-v="21" aria-label="A+C群流脑第2剂已接种"></td><td><span class="cell-name">A群C群流脑多糖疫苗 第2剂</span></td><td>6 岁</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="block">
+      <h3>自费（非免疫规划）疫苗怎么选</h3>
+      <p class="muted small" style="margin:0 0 10px">自费 ≠ 不重要，只是财政还没兜底。预算有限时的优先级参考：肺炎结合 > 五联/联合 > 轮状 > 流感 > 水痘/EV71。</p>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>疫苗</th><th>预防疾病</th><th>接种安排</th><th>值不值得</th></tr></thead>
+          <tbody>
+            <tr><td>13 价肺炎结合</td><td>肺炎链球菌（肺炎、中耳炎、脑膜炎）</td><td>6 周~6 月龄基础 3 剂＋1 剂加强；超月龄有补种方案</td><td>强烈推荐，2 岁内患肺炎风险高</td></tr>
+            <tr><td>五联疫苗</td><td>百白破＋脊灰＋Hib</td><td>2、3、4、18 月龄各 1 剂，替代相应免费针</td><td>少打 8 针少跑 8 趟，宝宝少受罪</td></tr>
+            <tr><td>口服轮状</td><td>轮状病毒肠炎（秋季腹泻）</td><td>2 月龄起口服，各有接种窗口期，错过不能补</td><td>推荐；腹泻重症住院的主要元凶</td></tr>
+            <tr><td>流感疫苗</td><td>季节性流感</td><td>满 6 月龄每年秋季接种，首年打 2 剂</td><td>推荐全家每年打，保护 6 月龄以下弟弟妹妹</td></tr>
+            <tr><td>水痘疫苗</td><td>水痘</td><td>12 月龄＋4 岁各 1 剂（部分地区已免费）</td><td>推荐，入园前最好完成</td></tr>
+            <tr><td>EV71 手足口</td><td>肠道病毒 71 型手足口病（重症型）</td><td>6 月龄~5 岁，2 剂间隔 1 个月</td><td>推荐，可防手足口重症</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid-2 block">
+      <div class="card">
+        <h3>接种前后</h3>
+        <ul class="dots">
+          <li><b>接种前</b>：宝宝精神好、无发热和急性病；带好预防接种证；穿方便露肩袖的衣服；如实告知近期用药和过敏史；</li>
+          <li><b>接种后</b>：留观 30 分钟再离开（最危险的过敏发生在头半小时）；当天多喂水、避免剧烈活动；</li>
+          <li><b>常见反应</b>：24~48 小时内低热、注射部位红肿硬结——多观察、可冷敷，一般 1~2 天自行消退；</li>
+          <li><b>要就医的情况</b>：高热不退（≥38.5℃ 持续）、精神萎靡、持续哭闹超过 3 小时、呼吸困难、荨麻疹；</li>
+          <li><b>逾期了</b>：尽早补上即可，前面打过的不算数、不用从头来，门诊会按补种规则衔接。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>两个高频疑问</h3>
+        <ul class="faq">
+          <li><b>"能不能同时打两针？"</b><p>国家免疫规划疫苗可以同天在不同部位接种；灭活与减毒同天也允许。门诊会直接安排，不需要家长纠结。</p></li>
+          <li><b>"轻微感冒／湿疹／吃了鸡蛋能打吗？"</b><p>不发热的轻微流涕、湿疹稳定期、日常饮食都不是禁忌。真正的禁忌由医生判断：中重度发热、急性病期、既往严重过敏反应、免疫缺陷（减毒活疫苗）等。</p></li>
+        </ul>
+        <div class="note note-ok"><b>推迟几天要紧吗</b><span>因病推迟 1~2 周不影响最终效果，按门诊约的下一针时间补上即可；尽量别无故拖过一个月。</span></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p style="margin:0 0 6px">宝宝成长手册 · 内容为育儿科普整理，参考《国家免疫规划疫苗儿童免疫程序（2021 年版）》《中国居民膳食指南（2022）》、世界卫生组织（WHO）与美国儿科学会（AAP）公开建议。</p>
+    <p style="margin:0"><b>本站内容不能替代儿科医生的当面诊断。</b>宝宝出现异常表现请及时就医；用药与治疗请遵医嘱。页面内的记录（生日、接种与观察打卡）仅保存在你自己的浏览器里。</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var store = {
+    get: function(k, d){
+      try{
+        var v = localStorage.getItem("yuer:" + k);
+        return v == null ? d : JSON.parse(v);
+      }catch(e){ return d; }
+    },
+    set: function(k, v){
+      try{ localStorage.setItem("yuer:" + k, JSON.stringify(v)); }catch(e){}
+    }
+  };
+
+  /* ---------- 标签路由 ---------- */
+  var tabs = document.querySelectorAll(".tab");
+  var pages = document.querySelectorAll("section.page");
+  function showTab(name){
+    var hit = false;
+    tabs.forEach(function(t){ t.classList.toggle("on", t.dataset.tab === name); if(t.dataset.tab === name){ hit = true; t.scrollIntoView({block:"nearest", inline:"nearest"}); } });
+    if(!hit){ name = "home"; tabs[0].classList.add("on"); }
+    pages.forEach(function(p){ p.classList.toggle("on", p.id === name); });
+    store.set("tab", name);
+    window.scrollTo(0, 0);
+  }
+  tabs.forEach(function(t){ t.addEventListener("click", function(){ showTab(t.dataset.tab); }); });
+  document.querySelectorAll("[data-goto]").forEach(function(b){
+    b.addEventListener("click", function(){ showTab(b.dataset.goto); });
+  });
+  var initTab = (location.hash || "").replace("#", "");
+  var initOk = false;
+  pages.forEach(function(p){ if(p.id === initTab) initOk = true; });
+  showTab(initOk ? initTab : (store.get("tab", "home") || "home"));
+
+  /* ---------- 宝宝档案 ---------- */
+  var SAMPLE = "2026-03-15";
+  var birthInput = document.getElementById("birthInput");
+  var sampleTag = document.getElementById("sampleTag");
+  var todayStr = new Date().toISOString().slice(0, 10);
+  birthInput.max = todayStr;
+  birthInput.value = store.get("birth", SAMPLE);
+
+  var VAX_NEXT = [
+    {m:0,  name:"乙肝疫苗第1剂 + 卡介苗"},
+    {m:1,  name:"乙肝疫苗第2剂"},
+    {m:2,  name:"脊灰疫苗第1剂（注射）"},
+    {m:3,  name:"脊灰第2剂 + 百白破第1剂"},
+    {m:4,  name:"脊灰第3剂（口服）+ 百白破第2剂"},
+    {m:5,  name:"百白破第3剂"},
+    {m:6,  name:"乙肝第3剂 + A群流脑第1剂"},
+    {m:8,  name:"麻腮风第1剂 + 乙脑第1剂"},
+    {m:9,  name:"A群流脑第2剂"},
+    {m:18, name:"百白破加强 + 麻腮风第2剂 + 甲肝"},
+    {m:24, name:"乙脑第2剂"},
+    {m:36, name:"A+C群流脑第1剂"},
+    {m:48, name:"脊灰加强（口服）"},
+    {m:72, name:"白破加强 + A+C群流脑第2剂"}
+  ];
+
+  function calcAge(birthStr){
+    var bd = new Date(birthStr + "T00:00:00");
+    var t = new Date();
+    t.setHours(0, 0, 0, 0);
+    if(isNaN(bd.getTime()) || bd > t) return null;
+    var months = (t.getFullYear() - bd.getFullYear()) * 12 + (t.getMonth() - bd.getMonth());
+    if(t.getDate() < bd.getDate()) months -= 1;
+    if(months < 0) months = 0;
+    var anchor = new Date(bd.getFullYear(), bd.getMonth() + months, bd.getDate());
+    if(anchor > t){ months -= 1; if(months < 0) months = 0; anchor = new Date(bd.getFullYear(), bd.getMonth() + months, bd.getDate()); }
+    var days = Math.round((t - anchor) / 86400000);
+    return { months: months, days: Math.max(days, 0) };
+  }
+  function foodStage(m){
+    if(m < 6) return "还没开始 · 满6月龄并出现信号后添加";
+    if(m < 9) return "泥糊状 → 稠泥/末状，引入手指食物";
+    if(m < 12) return "碎块状软固体，鼓励自己抓食";
+    if(m < 18) return "小块家庭饭菜，可少量油盐";
+    return "接近成人性状，仍注意防窒息";
+  }
+  function sleepNeed(m){
+    if(m < 4) return "14~17 小时（24小时）";
+    if(m < 13) return "12~16 小时（含小睡）";
+    if(m < 25) return "11~14 小时";
+    return "10~13 小时";
+  }
+  function napCount(m){
+    if(m < 4) return "3~5 次，昼夜渐分";
+    if(m < 7) return "3 次";
+    if(m < 13) return "2~3 次";
+    if(m < 19) return "2 次并渐并 1 次";
+    if(m < 37) return "1 次午睡";
+    return "多数可不再午睡";
+  }
+  function motorFocus(m){
+    if(m < 3) return "俯趴练习、追视追听";
+    if(m < 5) return "抬头、翻身";
+    if(m < 7) return "翻身、靠坐到独坐";
+    if(m < 9) return "独坐、爬行准备";
+    if(m < 12) return "爬行、扶站扶走";
+    if(m < 16) return "独站独走";
+    if(m < 20) return "走稳、开始小跑";
+    if(m < 25) return "双脚跳、上下楼梯";
+    return "单脚站、骑三轮车";
+  }
+
+  var $ = function(id){ return document.getElementById(id); };
+  function renderProfile(){
+    var birth = birthInput.value || SAMPLE;
+    var isSample = (birth === store.get("birth", SAMPLE)) && !store.get("birthTouched", false);
+    sampleTag.hidden = !isSample;
+    var a = calcAge(birth);
+    if(!a){ $("ageNum").textContent = "—"; $("ageUnit").textContent = "请选择出生日期"; return; }
+    var m = a.months;
+    $("ageNum").textContent = m < 1 ? a.days : m;
+    $("ageUnit").textContent = m < 1 ? "天" : ("个月 " + a.days + " 天");
+    $("pfFood").textContent = foodStage(m);
+    $("pfSleep").textContent = sleepNeed(m);
+    $("pfNap").textContent = napCount(m);
+    $("pfMotor").textContent = motorFocus(m);
+    var nx = null;
+    for(var i = 0; i < VAX_NEXT.length; i++){ if(VAX_NEXT[i].m > m){ nx = VAX_NEXT[i]; break; } }
+    $("pfVax").textContent = nx ? (nx.name + " · 满" + nx.m + "月龄") : "免疫程序已完成";
+  }
+  birthInput.addEventListener("change", function(){
+    if(birthInput.value){ store.set("birth", birthInput.value); store.set("birthTouched", true); }
+    renderProfile();
+    renderVax();
+  });
+
+  /* ---------- 疫苗表 ---------- */
+  var vaxDone = store.get("vax", {});
+  function renderVax(){
+    var birth = birthInput.value || SAMPLE;
+    var a = calcAge(birth);
+    var m = a ? a.months : 0;
+    document.querySelectorAll("#vaxTable tbody tr").forEach(function(tr){
+      var rowM = parseInt(tr.dataset.m, 10);
+      var cb = tr.querySelector(".vax-check");
+      var td = tr.lastElementChild;
+      tr.classList.toggle("done", !!vaxDone[cb.dataset.v]);
+      if(vaxDone[cb.dataset.v]){
+        td.innerHTML = '<span class="badge badge-done">已接种</span>';
+      }else if(m >= rowM){
+        td.innerHTML = '<span class="badge badge-due">已到月龄 · 应尽快安排</span>';
+      }else{
+        var left = rowM - m;
+        td.innerHTML = '<span class="badge badge-future">' + (left >= 12 ? (Math.floor(left/12) + " 岁后") : ("约 " + left + " 个月后")) + '</span>';
+      }
+    });
+  }
+  document.querySelectorAll(".vax-check").forEach(function(cb){
+    cb.checked = !!vaxDone[cb.dataset.v];
+    cb.addEventListener("change", function(){
+      vaxDone[cb.dataset.v] = cb.checked;
+      store.set("vax", vaxDone);
+      renderVax();
+    });
+  });
+
+  /* ---------- 辅食观察记录 ---------- */
+  var obs = store.get("obs", [{ name: "牛肉泥（示例）", start: -2 }]);
+  function renderObs(){
+    var box = $("obsList");
+    box.innerHTML = "";
+    obs.forEach(function(o, i){
+      var when = o.start === 0 ? "今天开始" : (o.start === -1 ? "昨天开始" : Math.abs(o.start) + " 天前开始");
+      var dayTxt = Math.abs(o.start) <= 2 ? "第 " + (Math.abs(o.start) + 1) + "/3 天" : "观察期已过";
+      var div = document.createElement("div");
+      div.className = "obs-row";
+      div.innerHTML = "<b></b><span class='muted'></span><button class='obs-del' type='button' aria-label='删除'>×</button>";
+      div.querySelector("b").textContent = o.name;
+      div.querySelector("span").textContent = when + " · " + dayTxt + " · 无异常再加上下一种";
+      div.querySelector(".obs-del").addEventListener("click", function(){
+        obs.splice(i, 1); store.set("obs", obs); renderObs();
+      });
+      box.appendChild(div);
+    });
+  }
+  $("obsAdd").addEventListener("click", function(){
+    var v = $("obsInput").value.trim();
+    if(!v){ $("obsInput").focus(); return; }
+    obs.push({ name: v, start: 0 });
+    $("obsInput").value = "";
+    store.set("obs", obs);
+    renderObs();
+  });
+  $("obsInput").addEventListener("keydown", function(e){ if(e.key === "Enter"){ $("obsAdd").click(); } });
+
+  /* ---------- 如厕就绪自测 ---------- */
+  var readyState = store.get("ready", {});
+  var READY_TIPS = [
+    "信号还不多，先不急：继续读绘本、让小马桶混个脸熟就好。",
+    "有一半左右了，可以进入第一步：引入小马桶，不着急坐出成果。",
+    "大部分信号都出现了——就是现在，按五步法开始吧！"
+  ];
+  function renderReady(){
+    var boxes = document.querySelectorAll("#readyChecks input");
+    var n = 0;
+    boxes.forEach(function(cb){
+      cb.checked = !!readyState[cb.dataset.r];
+      if(cb.checked) n++;
+      cb.onchange = function(){ readyState[cb.dataset.r] = cb.checked; store.set("ready", readyState); renderReady(); };
+    });
+    var tip = $("readyResult");
+    if(n === 0){
+      tip.innerHTML = '<span class="muted">还没勾选。多数孩子在 18~30 个月完成白天训练，月龄只是背景参考。</span>';
+    }else if(n <= 2){
+      tip.innerHTML = '<span class="muted">' + READY_TIPS[0] + '（已出现 ' + n + '/7）</span>';
+    }else if(n <= 5){
+      tip.innerHTML = '<span style="color:var(--butter)">' + READY_TIPS[1] + '（已出现 ' + n + '/7）</span>';
+    }else{
+      tip.innerHTML = '<span style="color:var(--ok)">' + READY_TIPS[2] + '（已出现 ' + n + '/7）</span>';
+    }
+  }
+
+  renderProfile();
+  renderVax();
+  renderObs();
+  renderReady();
+})();
+</script>
