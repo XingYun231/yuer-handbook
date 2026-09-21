@@ -119,7 +119,7 @@
     border-bottom:1px solid var(--line);
     padding-block:10px;
   }
-  .topbar-in{max-width:1080px;margin:0 auto;padding-inline:20px;display:flex;align-items:center;gap:18px}
+  .topbar-in{max-width:1080px;margin:0 auto;padding-inline:20px;display:flex;align-items:center;gap:18px;position:relative}
   .brand{display:flex;align-items:center;gap:10px;flex:none;cursor:pointer;background:none;border:0;padding:0}
   .brand-seal{
     width:38px;height:38px;border-radius:12px;background:var(--accent);color:var(--on-accent);
@@ -403,39 +403,35 @@
     .profile{padding:16px}
     .topbar-in{gap:10px}
     .brand-name{display:none}
+    .topsearch{width:126px;padding:0 9px}
   }
+
+  /* 跳转定位时给粘性顶栏让位 */
+  .page h2,.page h3,.page p,.page li,.page tr,.page .check,.page .night-item,.page .pf,.page .rhyme-chip{scroll-margin-top:78px}
 
   /* 站酷快乐体为单一字重，统一 400 避免浏览器伪加粗，靠字号与留白立住版面 */
   .brand-seal,.brand-name,.sec-head h2,h3,.age-num,.profile-title,.seal,.rhyme-chip b,.steps li::before,.hero h1{font-weight:400}
   .hero h1{letter-spacing:.01em}
 
-  /* ============ 站内搜索 ============ */
-  .searchbtn{
-    flex:none;width:36px;height:36px;border-radius:10px;border:1px solid var(--line);
-    background:var(--surface);color:var(--ink-2);display:grid;place-items:center;cursor:pointer;
-    transition:color .12s,border-color .12s;
+  /* ============ 顶栏搜索 ============ */
+  .topsearch{
+    flex:none;display:flex;align-items:center;gap:8px;height:36px;
+    border:1px solid var(--line);border-radius:10px;background:var(--surface);
+    padding:0 12px;width:clamp(150px,20vw,230px);
+    transition:border-color .12s;
   }
-  .searchbtn:hover{color:var(--accent);border-color:var(--accent)}
-  .search-overlay{
-    position:fixed;inset:0;z-index:60;
-    background:color-mix(in srgb,var(--ink) 32%,transparent);
-    display:flex;justify-content:center;align-items:flex-start;
-    padding:9vh 16px 16px;
-  }
-  .search-panel{
-    width:min(660px,100%);background:var(--surface);border:1px solid var(--line);
-    border-radius:16px;box-shadow:0 24px 64px -16px rgba(0,0,0,.35);overflow:hidden;
-  }
-  .search-row{display:flex;align-items:center;gap:10px;padding:6px 8px 6px 16px;border-bottom:1px solid var(--line)}
-  .search-row svg{flex:none;color:var(--ink-2)}
+  .topsearch:focus-within{border-color:var(--accent)}
+  .topsearch svg{flex:none;color:var(--ink-2)}
   #searchInput{
     flex:1;min-width:0;border:0;background:transparent;color:var(--ink);
-    font-family:inherit;font-size:16px;padding:10px 0;
+    font-family:inherit;font-size:14px;padding:0;
   }
   #searchInput:focus{outline:none}
-  .search-esc{
-    flex:none;border:1px solid var(--line);background:var(--surface-2);color:var(--ink-2);
-    border-radius:8px;font-size:11.5px;padding:4px 8px;cursor:pointer;
+  .search-drop{
+    position:absolute;top:calc(100% + 8px);right:0;z-index:40;
+    width:min(560px,100%);
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;
+    box-shadow:0 18px 48px -12px rgba(0,0,0,.32);overflow:hidden;
   }
   .search-hint{padding:14px 18px;color:var(--ink-2);font-size:13.5px;line-height:1.7}
   .search-hint b{color:var(--butter)}
@@ -470,9 +466,13 @@
       <button class="tab" data-tab="daily" type="button">日常训练</button>
       <button class="tab" data-tab="vax" type="button">疫苗</button>
     </nav>
-    <button class="searchbtn" id="searchOpen" type="button" aria-label="搜索站内内容" title="搜索（按 / 键）">
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>
-    </button>
+    <div class="topsearch" role="search">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>
+      <input type="search" id="searchInput" placeholder="搜索：夜醒 / 辅食 / 麻腮风" autocomplete="off" aria-label="搜索站内内容">
+    </div>
+  </div>
+  <div class="search-drop" id="searchDrop" hidden>
+    <div class="search-results" id="searchResults"></div>
   </div>
 </header>
 
@@ -1017,17 +1017,6 @@
   </div>
 </footer>
 
-<div class="search-overlay" id="searchOverlay" hidden role="dialog" aria-modal="true" aria-label="站内搜索">
-  <div class="search-panel">
-    <div class="search-row">
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>
-      <input type="search" id="searchInput" placeholder="搜索：夜醒 / 补铁 / 如厕 / 麻腮风 …" autocomplete="off">
-      <button class="search-esc" id="searchClose" type="button">Esc</button>
-    </div>
-    <div class="search-results" id="searchResults"></div>
-  </div>
-</div>
-
 <script>
 (function(){
   "use strict";
@@ -1247,7 +1236,7 @@
   /* ---------- 站内搜索 ---------- */
   var SEC_NAMES = { home:"首页", food:"辅食", sleep:"睡眠", potty:"如厕训练", sensory:"感统训练", daily:"日常训练", vax:"疫苗" };
   var SEC_COLOR = { home:"var(--ink-2)", food:"var(--t-food)", sleep:"var(--t-sleep)", potty:"var(--t-potty)", sensory:"var(--t-sens)", daily:"var(--t-daily)", vax:"var(--t-vax)" };
-  var overlay = document.getElementById("searchOverlay");
+  var drop = document.getElementById("searchDrop");
   var sInput = document.getElementById("searchInput");
   var sResults = document.getElementById("searchResults");
 
@@ -1296,7 +1285,7 @@
   function searchRender(){
     var q = sInput.value.replace(/\s+/g, " ").trim();
     if(!q){
-      sResults.innerHTML = '<div class="search-hint">输入关键词开始搜索，比如：<b>夜醒</b>、<b>补铁</b>、<b>尿床</b>、<b>麻腮风</b>。随时按 <b>/</b> 唤起搜索，回车直达第一条结果。</div>';
+      sResults.innerHTML = '<div class="search-hint">输入关键词开始搜索，比如：<b>夜醒</b>、<b>补铁</b>、<b>尿床</b>、<b>麻腮风</b>。按 <b>/</b> 可快速定位到搜索框，回车直达第一条结果。</div>';
       return;
     }
     var ql = q.toLowerCase(), hits = [];
@@ -1330,6 +1319,7 @@
   }
   function goTo(it){
     closeSearch();
+    sInput.blur();
     showTab(it.sec);
     setTimeout(function(){
       try{ it.el.scrollIntoView({ block: "center" }); }catch(e){}
@@ -1338,20 +1328,19 @@
     }, 80);
   }
   function openSearch(){
-    overlay.hidden = false;
-    document.body.style.overflow = "hidden";
+    drop.hidden = false;
     sInput.focus();
-    sInput.select();
     searchRender();
   }
   function closeSearch(){
-    overlay.hidden = true;
-    document.body.style.overflow = "";
+    drop.hidden = true;
   }
-  document.getElementById("searchOpen").addEventListener("click", openSearch);
-  document.getElementById("searchClose").addEventListener("click", closeSearch);
-  overlay.addEventListener("click", function(e){ if(e.target === overlay) closeSearch(); });
-  sInput.addEventListener("input", searchRender);
+  sInput.addEventListener("focus", openSearch);
+  document.addEventListener("click", function(e){
+    if(drop.hidden) return;
+    if(!e.target.closest(".topsearch") && !e.target.closest(".search-drop")) closeSearch();
+  });
+  sInput.addEventListener("input", function(){ drop.hidden = false; searchRender(); });
   sInput.addEventListener("keydown", function(e){
     if(e.key === "Enter"){
       var first = sResults.querySelector(".sr");
@@ -1359,8 +1348,8 @@
     }
   });
   document.addEventListener("keydown", function(e){
-    if(e.key === "Escape" && !overlay.hidden){ closeSearch(); return; }
-    if(!overlay.hidden) return;
+    if(e.key === "Escape" && !drop.hidden){ closeSearch(); return; }
+    if(!drop.hidden) return;
     var typing = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName);
     if(e.key === "/" && !typing){ e.preventDefault(); openSearch(); }
     if((e.ctrlKey || e.metaKey) && (e.key === "k" || e.key === "K")){ e.preventDefault(); openSearch(); }
