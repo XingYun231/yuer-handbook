@@ -1285,7 +1285,7 @@
   function searchRender(){
     var q = sInput.value.replace(/\s+/g, " ").trim();
     if(!q){
-      sResults.innerHTML = '<div class="search-hint">输入关键词开始搜索，比如：<b>夜醒</b>、<b>补铁</b>、<b>尿床</b>、<b>麻腮风</b>。按 <b>/</b> 可快速定位到搜索框，回车直达第一条结果。</div>';
+      sResults.innerHTML = "";
       return;
     }
     var ql = q.toLowerCase(), hits = [];
