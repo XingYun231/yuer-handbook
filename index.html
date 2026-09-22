@@ -1286,6 +1286,7 @@
     var q = sInput.value.replace(/\s+/g, " ").trim();
     if(!q){
       sResults.innerHTML = "";
+      drop.hidden = true;
       return;
     }
     var ql = q.toLowerCase(), hits = [];
